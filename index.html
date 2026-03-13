@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>π日大挑战</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="hud">
+      <div class="brand">
+        <div class="title">π日大挑战</div>
+        <div class="subtitle">画一个尽量圆的圆，松手后系统给你打分</div>
+      </div>
+      <div class="controls">
+        <div class="player">
+          <label for="playerName">参赛名</label>
+          <input id="playerName" type="text" maxlength="20" placeholder="请输入昵称" />
+          <span class="sync-status" id="syncStatus">离线</span>
+        </div>
+        <button id="leaderboardBtn" type="button">排行榜</button>
+        <button id="resetBtn" type="button">重试</button>
+      </div>
+    </header>
+    <main class="stage">
+      <canvas id="board"></canvas>
+      <div class="emoji-burst" id="emojiBurst"></div>
+      <div class="result hidden" id="result">
+        <div class="grade" id="grade">A</div>
+        <div class="pi-line">π_est: <span id="piValue">3.14159</span></div>
+        <div class="score-line">分数: <span id="scoreValue">88</span></div>
+        <div class="meta-line">圆度: <span id="roundnessValue">0.93</span></div>
+        <div class="emoji-line" id="emojiLine"></div>
+        <div class="hint" id="hint"></div>
+      </div>
+      <aside class="leaderboard hidden" id="leaderboardPanel" aria-hidden="true">
+        <div class="leaderboard-shell">
+          <div class="leaderboard-header">
+            <div>
+              <div class="leaderboard-title">排行榜模式</div>
+              <div class="leaderboard-subtitle" id="leaderboardSubtitle">联网排行 · 显示前 50</div>
+            </div>
+            <button id="closeBoardBtn" type="button">返回挑战</button>
+          </div>
+          <div class="leaderboard-stats">
+            <div class="stat-card">
+              <div class="stat-label">有缘人</div>
+              <div class="stat-value" id="bestName">--</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">最高分</div>
+              <div class="stat-value" id="bestScore">--</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">记录条数</div>
+              <div class="stat-value" id="entryCount">0</div>
+            </div>
+          </div>
+          <ol class="leaderboard-list" id="leaderboardList"></ol>
+          <div class="leaderboard-actions">
+            <button id="clearBoardBtn" type="button">清空本地缓存</button>
+          </div>
+        </div>
+      </aside>
+      <div class="tip">按住并画圈，松手结算</div>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
